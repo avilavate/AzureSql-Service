@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using AzureWebApp_SQL_Service.Models;
 
 namespace AzureWebApp_SQL_Service.Data
 {
@@ -12,5 +13,6 @@ namespace AzureWebApp_SQL_Service.Data
             : base(options)
         {
         }
+        public DbSet<AzureWebApp_SQL_Service.Models.CourseModel> CourseModel { get; set; }
     }
 }

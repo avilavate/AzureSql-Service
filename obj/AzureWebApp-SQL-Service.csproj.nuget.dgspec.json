@@ -55,11 +55,19 @@
               "target": "Package",
               "version": "[3.1.0, )"
             },
+            "Microsoft.Azure.DocumentDB.Core": {
+              "target": "Package",
+              "version": "[2.9.2, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[3.1.0, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Microsoft.Extensions.Logging.Debug": {
               "target": "Package",
               "version": "[3.1.0, )"
             },

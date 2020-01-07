@@ -28,7 +28,8 @@ namespace AzureWebApp_SQL_Service.Controllers
                 using(var stream = Image.OpenReadStream())
                 {
                     var imageId = this.imageStore.SaveImage(stream, Image.FileName);
-                    return RedirectToAction("Show", new { imageId });
+                    imageId.Wait();
+                    return RedirectToAction("Show",new { imageId = imageId.Result });
                 }
             }
             return View("Index");

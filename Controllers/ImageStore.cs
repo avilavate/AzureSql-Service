@@ -24,35 +24,31 @@ namespace AzureWebApp_SQL_Service.Controllers
         }
 
         [RequestSizeLimit(400000)]
-      
+
         public async Task<string> SaveImage(Stream stream, string fileName)
         {
             var id = Guid.NewGuid().ToString();
-            
+
             var container = this.blobClient.GetContainerReference("images");
-          
+
             var blob = container.GetBlockBlobReference(id);
             var options = new BlobRequestOptions();
             options.ServerTimeout = new TimeSpan(1, 1, 1);
             options.MaximumExecutionTime = new TimeSpan(1, 1, 1);
             options.ParallelOperationThreadCount = 64;
-            try
-            {
-                await blob.UploadFromFileAsync(fileName, null, options, null);
-            }
-            catch (Exception ex)
-            {
 
-                throw;
-            }
-           
+            //  await blob.UploadFromFileAsync(fileName, null, options, null);
+            await blob.UploadFromStreamAsync(stream, null, options, null);
+
+
+
             //await blob.UploadFromStreamAsync(stream);
             return id;
         }
 
         public Uri UriFor(string imageId)
         {
-            return new Uri(this.baseUri + "images/" + imageId);
+            return new Uri(this.baseUri + "/images/" + imageId);
         }
     }
 }

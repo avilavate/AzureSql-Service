@@ -18,9 +18,11 @@ namespace AzureWebApp_SQL_Service
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+            
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                   
                 });
     }
 }

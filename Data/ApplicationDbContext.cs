@@ -4,6 +4,7 @@ using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using AzureWebApp_SQL_Service.Models;
+using AzureWebApp_SQL_Service.Controllers;
 
 namespace AzureWebApp_SQL_Service.Data
 {
@@ -14,5 +15,6 @@ namespace AzureWebApp_SQL_Service.Data
         {
         }
         public DbSet<AzureWebApp_SQL_Service.Models.CourseModel> CourseModel { get; set; }
+        public DbSet<AzureWebApp_SQL_Service.Controllers.ShowModel> ShowModel { get; set; }
     }
 }
